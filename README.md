@@ -10,7 +10,7 @@ A lot of progress reports will be posted on my [LinkedIn](https://www.linkedin.c
 PLEASE KEEP IN MIND!!!
 This project is designed for the intention to learn how the game development cycle works, this is a passion project and I am not making anything off of this. This is purely for enjoyment and for my education!!!!
 
-For any questions and/or how to contribute to the project, feel free to contact me through [LinkedIn](https://www.linkedin.com/in/attila-toth-7b6b621ab/).
+For any questions and/or how to contribute to the project, feel free to contact me through [LinkedIn](https://www.linkedin.com/in/attila-toth-7b6b621ab/) Official start date of project 17/07/2024.
 
 ## Contributions
 
