@@ -1,14 +1,25 @@
 using System;
 using UnityEngine;
 using NaughtyAttributes;
+using System.Collections;
 
 public class GolfBall : MonoBehaviour
 {
+    #region Getters/Setters
+    
     public bool IsIdle
     {
-        get => isIdle;
-        set => isIdle = value;
-    }
+        get
+        {
+            return isIdle;
+        }
+        set
+        {
+            isIdle = value;
+        }
+    } 
+
+    #endregion
 
     [Header("References")]
     [SerializeField] private MeshRenderer meshRenderer;
@@ -18,11 +29,21 @@ public class GolfBall : MonoBehaviour
     [Header("Physics")]
     [SerializeField] private float maxSpeed;
     [SerializeField] private float stopThreshold = 0.01f;
+
+    [Header("Lerping")]
+    [SerializeField, Range(.1f, 5f)] private float tweenTime = 1f;
+    [SerializeField] private AnimationCurve tweenCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+
+    [Header("Debugging")]
     [SerializeField, ReadOnly] private bool isIdle;
+    [SerializeField, ReadOnly] private Vector3 savedPos;
+    [SerializeField, ReadOnly] private Quaternion savedRot;
 
     private new SphereCollider collider;
     private new Rigidbody rigidbody;
 
+    private Transform ballSavedPosition;
+    
     private void Awake()
     {
         try
@@ -36,15 +57,54 @@ public class GolfBall : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        PositionSaving();
+    }
+
     private void Update()
     {
         HandleSpeed();
-        BallMesh();
+        PositionSaving();
+        
+        meshRenderer.material = isIdle ? idle : rolling;
     }
 
-    private void BallMesh()
+    public IEnumerator ResetPosition()
     {
-        meshRenderer.material = isIdle ? idle : rolling;
+        float timer = 0.0f;
+
+        Vector3 startPos = transform.position;
+        Vector3 endPos = savedPos;
+        
+        while(timer < tweenTime)
+        {
+            float factor = Mathf.Clamp01(timer / tweenTime);
+            float t = tweenCurve.Evaluate(factor);
+
+            transform.position = Vector3.Lerp(startPos, endPos, t);
+
+            yield return null;
+
+            timer += Time.deltaTime;
+        }
+
+        Debug.Log($"Reset to {savedPos}");
+
+        transform.position = endPos;
+        transform.localRotation = savedRot;
+
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.angularVelocity = Vector3.zero;
+    }
+
+    private void PositionSaving()
+    {
+        if(isIdle)
+        {
+            savedPos = new Vector3(transform.position.x, transform.position.y + 0.01f, transform.position.z);
+            savedRot = transform.localRotation;
+        }
     }
 
     private void HandleSpeed()

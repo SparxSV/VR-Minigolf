@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6028145513314631676}
   m_Layer: 0
   m_Name: Golf Ball
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,34 @@ MonoBehaviour:
   idle: {fileID: 2100000, guid: 40b655e7b8761da41b3e340e66fa57fc, type: 2}
   maxSpeed: 10
   stopThreshold: 0.05
+  tweenCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  tweenTime: 1
   isIdle: 0
+  savedPos: {x: 0, y: 0, z: 0}
+  savedRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &6028145513314631676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,7 +119,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288662971118490417}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
@@ -203,7 +230,7 @@ MonoBehaviour:
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
   m_SmoothPosition: 0
-  m_SmoothPositionAmount: 8
+  m_SmoothPositionAmount: 20
   m_TightenPosition: 0.1
   m_TrackRotation: 1
   m_SmoothRotation: 0
