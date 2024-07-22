@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   celebrationParticle: {fileID: 1804535794472418307}
+  holeCompleted: 0
 --- !u!1 &4357379411424278939
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,7 +809,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.1
+      value: 0.01
       mode: 0
       spread: 0
       speed:
