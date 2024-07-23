@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
-namespace Objects
+namespace Golf
 {
     public class Putter : MonoBehaviour
     {

@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Objects
+namespace Golf
 {
     public class Hole : MonoBehaviour
     {

@@ -3,7 +3,7 @@ using System.Collections;
 using NaughtyAttributes;
 using UnityEngine;
 
-namespace Objects
+namespace Golf
 {
     public class GolfBall : MonoBehaviour
     {
