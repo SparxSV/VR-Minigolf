@@ -1,53 +1,41 @@
 using System;
 using UnityEngine;
 
-public class Hole : MonoBehaviour
+namespace Objects
 {
-    #region Getters/Setters
-
-    public bool HoleCompleted
+    public class Hole : MonoBehaviour
     {
-        get;
-        private set;
-    }
+        #region Getters/Setters
 
-    #endregion
-
-    [Header("References")]
-    [SerializeField] private ParticleSystem celebrationParticle;
-
-    [Header("Debugging")]
-    [SerializeField] private bool holeCompleted;
-
-    private new BoxCollider collider;
-
-    private void Awake()
-    {
-        try
+        /*public bool HoleCompleted
         {
-            collider = GetComponent<BoxCollider>();
+            get;
+        }*/
+
+        #endregion
+
+        [Header("References")]
+        [SerializeField] private ParticleSystem celebrationParticle;
+
+        private void Awake()
+        {
+            try
+            {
+            }
+            catch(NullReferenceException ex)
+            {
+                Debug.LogException(ex);
+            }
         }
-        catch(NullReferenceException ex)
+
+        private void OnTriggerEnter(Collider other)
         {
-            Debug.LogException(ex);
-        }
-    }
+            GolfBall golfBall = other.GetComponent<GolfBall>();
 
-    private void Start()
-    {
-        holeCompleted = false;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        GolfBall golfBall = other.GetComponent<GolfBall>();
-
-        if(golfBall != null)
-        {
+            if (golfBall == null) return;
+                
             Debug.Log("Hit");
             celebrationParticle.Play();
-
-            holeCompleted = true;
         }
     }
 }

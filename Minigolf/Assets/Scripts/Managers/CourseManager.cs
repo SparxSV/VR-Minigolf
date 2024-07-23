@@ -1,14 +1,18 @@
 using System.Collections.Generic;
+using Objects;
 using UnityEngine;
 
-public class CourseManager : MonoBehaviour
+namespace Managers
 {
-    [SerializeField] private List<Hole> holes;
-
-    private int totalHoles;
-
-    private void Start()
+    public class CourseManager : MonoBehaviour
     {
-        totalHoles = holes.Count;
+        [SerializeField] private List<Hole> holes;
+
+        /*private int totalHoles;
+
+        private void Start()
+        {
+            totalHoles = holes.Count;
+        }*/
     }
 }

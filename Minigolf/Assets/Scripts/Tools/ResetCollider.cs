@@ -1,13 +1,17 @@
+using Objects;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider))]
-public class ResetCollider : MonoBehaviour
+namespace Tools
 {
-    private void OnTriggerEnter(Collider other)
+    [RequireComponent(typeof(BoxCollider))]
+    public class ResetCollider : MonoBehaviour
     {
-        GolfBall ball = other.GetComponent<GolfBall>();
+        private void OnTriggerEnter(Collider other)
+        {
+            GolfBall ball = other.GetComponent<GolfBall>();
 
-        if (ball != null)
-            StartCoroutine(ball.ResetPosition());
+            if (ball != null)
+                StartCoroutine(ball.ResetPosition());
+        }
     }
 }
