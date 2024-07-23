@@ -124,5 +124,11 @@ namespace Objects
             if (putter != null)
                 rigidBody.AddForce(transform.forward * putter.Force, ForceMode.Impulse);
         }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            if (isIdle && other.gameObject.CompareTag("Green"))
+                StartCoroutine(ResetPosition());
+        }
     }
 }
