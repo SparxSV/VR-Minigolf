@@ -32,7 +32,6 @@ namespace Tools
 
         private void Update()
         {
-            GetInputs();
             RayVisualizer();
         }
 
@@ -43,21 +42,6 @@ namespace Tools
 
             rightHandInteractor.enabled = isLeftHand;
             rightLineRenderer.enabled = isLeftHand;
-        }
-
-        private void GetInputs()
-        {
-            if (leftReference.action.IsPressed())
-            {
-                isLeftHand = true;
-                isRightHand = false;
-            }
-
-            if(rightReference.action.IsPressed())
-            {
-                isLeftHand = false;
-                isRightHand = true;
-            }
         }
     }
 }

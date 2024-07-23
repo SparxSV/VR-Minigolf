@@ -17,8 +17,8 @@ namespace Objects
 
         #endregion
 
-        [Header("References")]
-        [SerializeField] private MeshRenderer meshRenderer;
+        [Header("References")] 
+        [SerializeField] private TrailRenderer trailRenderer;
         [SerializeField] private Material rolling;
         [SerializeField] private Material idle;
 
@@ -35,8 +35,9 @@ namespace Objects
         [SerializeField, ReadOnly] private Vector3 savedPos;
         [SerializeField, ReadOnly] private Quaternion savedRot;
 
-        //private new SphereCollider collider;
+        private new SphereCollider collider;
         private Rigidbody rigidBody;
+        private MeshRenderer meshRenderer;
 
         private Transform ballSavedPosition;
     
@@ -44,8 +45,10 @@ namespace Objects
         {
             try
             {
-                //collider = GetComponent<SphereCollider>();
+                meshRenderer = GetComponent<MeshRenderer>();
+                
                 rigidBody = GetComponent<Rigidbody>();
+                collider = GetComponent<SphereCollider>();
             }
             catch(NullReferenceException ex)
             {
@@ -56,6 +59,8 @@ namespace Objects
         private void Start()
         {
             PositionSaving();
+
+            //collider.contactOffset = 0.01f;
         }
 
         private void Update()
@@ -68,15 +73,18 @@ namespace Objects
 
         public IEnumerator ResetPosition()
         {
-            float timer = 0.0f;
+            var timer = 0.0f;
 
-            Vector3 startPos = transform.position;
-            Vector3 endPos = savedPos;
+            var startPos = transform.position;
+            var endPos = savedPos;
+
+            collider.enabled = false;
+            trailRenderer.emitting = false;
         
             while(timer < tweenTime)
             {
-                float factor = Mathf.Clamp01(timer / tweenTime);
-                float t = tweenCurve.Evaluate(factor);
+                var factor = Mathf.Clamp01(timer / tweenTime);
+                var t = tweenCurve.Evaluate(factor);
 
                 transform.position = Vector3.Lerp(startPos, endPos, t);
 
@@ -87,6 +95,9 @@ namespace Objects
 
             Debug.Log($"Reset to {savedPos}");
 
+            collider.enabled = true;
+            trailRenderer.emitting = true;
+            
             transform.position = endPos;
             transform.localRotation = savedRot;
 
@@ -96,11 +107,10 @@ namespace Objects
 
         private void PositionSaving()
         {
-            if(isIdle)
-            {
-                savedPos = new Vector3(transform.position.x, transform.position.y + 0.01f, transform.position.z);
-                savedRot = transform.localRotation;
-            }
+            if (!isIdle) return;
+            
+            savedPos = new Vector3(transform.position.x, transform.position.y + 0.01f, transform.position.z);
+            savedRot = transform.localRotation;
         }
 
         private void HandleSpeed()
@@ -119,7 +129,7 @@ namespace Objects
 
         private void OnCollisionExit(Collision collision)
         {
-            Putter putter = collision.gameObject.GetComponent<Putter>();
+            var putter = collision.gameObject.GetComponent<Putter>();
 
             if (putter != null)
                 rigidBody.AddForce(transform.forward * putter.Force, ForceMode.Impulse);
@@ -127,7 +137,7 @@ namespace Objects
 
         private void OnCollisionEnter(Collision other)
         {
-            if (isIdle && other.gameObject.CompareTag("Green"))
+            if (other.gameObject.CompareTag("Green"))
                 StartCoroutine(ResetPosition());
         }
     }
