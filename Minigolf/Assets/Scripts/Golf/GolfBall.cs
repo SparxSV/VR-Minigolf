@@ -24,11 +24,11 @@ namespace Golf
 
         [Header("Physics")]
         [SerializeField] private float maxSpeed;
-        [SerializeField] private float stopThreshold = 0.01f;
+        [SerializeField] private float stopThreshold;
 
         [Header("Lerping")]
-        [SerializeField, Range(.1f, 5f)] private float tweenTime = 1f;
-        [SerializeField] private AnimationCurve tweenCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+        [SerializeField, Range(.1f, 5f)] private readonly float tweenTime = 1f;
+        [SerializeField] private readonly AnimationCurve tweenCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
         [Header("Debugging")]
         [SerializeField, ReadOnly] private bool isIdle;
@@ -60,15 +60,13 @@ namespace Golf
         {
             PositionSaving();
 
-            //collider.contactOffset = 0.01f;
+            collider.contactOffset = 0.01f;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             HandleSpeed();
             PositionSaving();
-        
-            meshRenderer.material = isIdle ? idle : rolling;
         }
 
         public IEnumerator ResetPosition()
@@ -116,8 +114,9 @@ namespace Golf
         private void HandleSpeed()
         {
             isIdle = rigidBody.velocity.magnitude <= stopThreshold;
+            meshRenderer.material = isIdle ? idle : rolling;
 
-            if(isIdle)
+            if (isIdle)
             {
                 rigidBody.velocity = Vector3.zero;
                 rigidBody.angularVelocity = Vector3.zero;

@@ -45,10 +45,13 @@ namespace Golf
 
         private void Update()
         {
-            Force = rigidBody.velocity.magnitude;
-     
             GetInputs();
+        }
+
+        private void FixedUpdate()
+        {
             EnableHit();
+            Force = rigidBody.velocity.magnitude;
         }
 
         private void EnableHit()
