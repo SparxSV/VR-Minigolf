@@ -9,7 +9,7 @@ namespace Golf
 
         private void OnTriggerEnter(Collider other)
         {
-            var golfBall = other.GetComponent<GolfBall>();
+            GolfBall golfBall = other.GetComponent<GolfBall>();
 
             if (golfBall == null) return;
                 

@@ -7,16 +7,6 @@ namespace Golf
 {
     public class GolfBall : MonoBehaviour
     {
-        #region Getters/Setters
-    
-        public bool IsIdle
-        {
-            get => isIdle;
-            set => isIdle = value;
-        } 
-
-        #endregion
-
         [Header("References")] 
         [SerializeField] private TrailRenderer trailRenderer;
         [SerializeField] private Material rolling;
@@ -27,8 +17,8 @@ namespace Golf
         [SerializeField] private float stopThreshold;
 
         [Header("Lerping")]
-        [SerializeField, Range(.1f, 5f)] private readonly float tweenTime = 1f;
-        [SerializeField] private readonly AnimationCurve tweenCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+        [SerializeField, Range(.1f, 5f)] private float tweenTime;
+        [SerializeField] private AnimationCurve tweenCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
         [Header("Debugging")]
         [SerializeField, ReadOnly] private bool isIdle;

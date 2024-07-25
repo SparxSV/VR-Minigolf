@@ -10,7 +10,7 @@ namespace Tools
         {
             GolfBall ball = other.GetComponent<GolfBall>();
 
-            if (ball != null)
+            if(ball != null)
                 StartCoroutine(ball.ResetPosition());
         }
     }

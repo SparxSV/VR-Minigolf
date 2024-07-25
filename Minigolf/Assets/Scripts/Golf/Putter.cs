@@ -9,7 +9,11 @@ namespace Golf
     {
         #region Getters/Setters
 
-        public float Force { get; private set; }
+        public float Force
+        {
+            get; 
+            private set;
+        }
 
         #endregion
 

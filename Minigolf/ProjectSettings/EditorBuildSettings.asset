@@ -4,7 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Pre-Alpha/Main Lobby.unity
+    guid: b2eed8df1f287ee418960ec7bf9a2e4f
+  - enabled: 1
+    path: Assets/Scenes/Pre-Alpha/Tutorial.unity
+    guid: 9fb33befbeb90b941ac69f7512af5a22
+  - enabled: 1
+    path: Assets/Scenes/Pre-Alpha/Slopey Green.unity
+    guid: 6e7fdcc18b6086344b886bc6c71ce204
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b586210ccb22ec84c97b8a94eeefa6db,
       type: 2}
