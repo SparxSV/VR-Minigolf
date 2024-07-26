@@ -11,6 +11,13 @@ namespace Managers
         public int CurrentHole { get; set; }
         public int CurrentPar { get; set; }
 
-        public Dictionary<int, Hole> courses;
+        [SerializeField] private List<Hole> holes;
+
+        private int totalHoles;
+
+        private void Start()
+        {
+            totalHoles = holes.Count;
+        }
     }
 }
