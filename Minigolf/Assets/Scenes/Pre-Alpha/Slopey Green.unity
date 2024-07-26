@@ -460,7 +460,7 @@ Transform:
   - {fileID: 1625344866}
   - {fileID: 58066375}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &168646530
 PrefabInstance:
@@ -762,6 +762,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 257080220}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &267412280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 267412282}
+  - component: {fileID: 267412281}
+  m_Layer: 0
+  m_Name: Course Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &267412281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267412280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80ce456bff9bd44b8d336d63aa60e2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &267412282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267412280}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &307024076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1246,7 +1290,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &469774206
 GameObject:
@@ -3787,7 +3831,7 @@ Transform:
   - {fileID: 850198793}
   - {fileID: 1399405643}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1278885994
 PrefabInstance:
@@ -4473,7 +4517,7 @@ PrefabInstance:
     - target: {fileID: 1727139997485073036, guid: c2babd65988460047ab99a37fadea16f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1727139997485073036, guid: c2babd65988460047ab99a37fadea16f,
         type: 3}
@@ -5108,7 +5152,7 @@ Transform:
   - {fileID: 387143095}
   - {fileID: 590415448}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1824827607
 GameObject:
@@ -5437,7 +5481,7 @@ Transform:
   - {fileID: 866186940}
   - {fileID: 1824827608}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1958205497
 PrefabInstance:
